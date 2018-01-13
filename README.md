@@ -36,7 +36,7 @@ cp /data/dist/* /data/app -r
 ```console
 docker-compose run node
 yarn
-yarn add sass-loader
+yarn add sass-loader babel-preset-es2017 react react-dom prop-types babel-preset-react
 ```
 
 # Usage
@@ -53,6 +53,10 @@ docker-compose run node
 yarn run build
 ```
 
+# Docs
+
+- [Webpack Encore - Managing CSS and JavaScript](https://symfony.com/doc/current/frontend.html)
+- [Using webpack-dev-server and HMR](https://symfony.com/doc/current/frontend/encore/dev-server.html)
 
 ---
 
