@@ -4,7 +4,7 @@ services:
   php:
     image: php:7.2-cli-alpine
     command: /bin/sh
-    working_dir: /data
+    working_dir: /data/app
     ports:
         - "8000:80"
     volumes:
@@ -13,6 +13,6 @@ services:
   node:
     image: node:8-alpine
     command: /bin/sh
-    working_dir: /data
+    working_dir: /data/app
     volumes:
         - ./:/data:cached

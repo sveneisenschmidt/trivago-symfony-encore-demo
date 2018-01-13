@@ -17,20 +17,26 @@ curl https://getcomposer.org/installer | php -- --filename=composer --install-di
 2. Install Symfony Skeleton
 ```console
 docker-compose run php
-composer create-project symfony/skeleton app
+composer create-project symfony/skeleton /data/app
 ```
 
 3. Install Symfony Flex packages
 ```console
 docker-compose run php
-cd app
 composer require server twig asset encore
 ```
 
 4. Copy `dist` files to root
 ```console
 docker-compose run php
-cp dist/* app -r
+cp /data/dist/* /data/app -r
+```
+
+5. Install node packages
+```console
+docker-compose run node
+yarn
+yarn add sass-loader
 ```
 
 # Usage
@@ -39,6 +45,12 @@ cp dist/* app -r
 ```console
 docker-compose run --service-ports php
 php bin/console server:run 0.0.0.0:80
+```
+
+2. Build assets
+```console
+docker-compose run node
+yarn run build
 ```
 
 
