@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  php:
+    image: php:7.2-cli-alpine
+    command: /bin/sh
+    working_dir: /data
+    ports:
+        - "8000:80"
+    volumes:
+        - ./:/data:cached
+
+  node:
+    image: node:8-alpine
+    command: /bin/sh
+    working_dir: /data
+    volumes:
+        - ./:/data:cached
