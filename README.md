@@ -45,8 +45,9 @@ yarn
 | Folder | Description |
 |---|---|
 | `examples/01-basic-setup` | Default controller, assets and routes. |
-| `examples/02-es5-scss` | Basic setup plus ES5 and SCSS support via Webpack Encore. |
-
+| `examples/02-es5-scss` | Basic setup plus ES5 and SCSS support. |
+| `examples/03-jquery` | Basic setup plus ES5, SCSS and jQuery support. |
+| `examples/04-react` | Basic setup plus ES5, SCSS and React support. |
 
 2. Copy examples files to application
 ```console

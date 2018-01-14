@@ -1,1 +1,1 @@
-console.log('Hello from JS!');
+document.getElementById('root').innerText = 'Rendered with plain old JS!';
