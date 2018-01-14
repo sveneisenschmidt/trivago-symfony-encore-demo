@@ -1,0 +1,190 @@
+{
+	"context": "/data/app",
+	"entry": {
+		"js/app": "./assets/js/app.jsx",
+		"css/app": "./assets/css/app.scss"
+	},
+	"output": {
+		"path": "/data/app/public/build",
+		"filename": "[name].js",
+		"publicPath": "/build/",
+		"pathinfo": false
+	},
+	"module": {
+		"rules": [{
+			"test": {},
+			"exclude": {},
+			"use": [{
+				"loader": "babel-loader",
+				"options": {
+					"cacheDirectory": true,
+					"presets": [
+						["env", {
+							"modules": false,
+							"targets": {
+								"browsers": "> 1%",
+								"uglify": true
+							},
+							"useBuiltIns": true
+						}], "react"
+					],
+					"plugins": []
+				}
+			}]
+		}, {
+			"test": {},
+			"use": [{
+				"loader": "/data/app/node_modules/extract-text-webpack-plugin/dist/loader.js",
+				"options": {
+					"omit": 1,
+					"remove": true
+				}
+			}, {
+				"loader": "style-loader"
+			}, {
+				"loader": "css-loader",
+				"options": {
+					"minimize": true,
+					"sourceMap": false,
+					"importLoaders": 0
+				}
+			}]
+		}, {
+			"test": {},
+			"loader": "file-loader",
+			"options": {
+				"name": "images/[name].[hash:8].[ext]",
+				"publicPath": "/build/"
+			}
+		}, {
+			"test": {},
+			"loader": "file-loader",
+			"options": {
+				"name": "fonts/[name].[hash:8].[ext]",
+				"publicPath": "/build/"
+			}
+		}, {
+			"test": {},
+			"use": [{
+				"loader": "/data/app/node_modules/extract-text-webpack-plugin/dist/loader.js",
+				"options": {
+					"omit": 1,
+					"remove": true
+				}
+			}, {
+				"loader": "style-loader"
+			}, {
+				"loader": "css-loader",
+				"options": {
+					"minimize": true,
+					"sourceMap": false,
+					"importLoaders": 0
+				}
+			}, {
+				"loader": "resolve-url-loader",
+				"options": {
+					"sourceMap": false
+				}
+			}, {
+				"loader": "sass-loader",
+				"options": {
+					"sourceMap": true
+				}
+			}]
+		}]
+	},
+	"plugins": [{
+		"filename": "[name].css",
+		"id": 1,
+		"options": {
+			"allChunks": false
+		}
+	}, {
+		"entriesToDelete": ["css/app"]
+	}, {
+		"opts": {
+			"basePath": "build/",
+			"publicPath": "/build/",
+			"fileName": "manifest.json",
+			"stripSrc": null,
+			"transformExtensions": {},
+			"writeToFileEmit": true,
+			"cache": null
+		}
+	}, {
+		"options": {
+			"debug": false,
+			"options": {
+				"context": "/data/app",
+				"output": {
+					"path": "/data/app/public/build"
+				}
+			},
+			"test": {}
+		}
+	}, {
+		"options": {
+			"hashFunction": "md5",
+			"hashDigest": "base64",
+			"hashDigestLength": 4
+		}
+	}, {
+		"paths": ["**/*"],
+		"options": {
+			"root": "/data/app/public/build",
+			"verbose": false,
+			"allowExternal": false,
+			"dry": false
+		}
+	}, {
+		"definitions": {
+			"process.env": {
+				"NODE_ENV": "\"production\""
+			}
+		}
+	}, {
+		"options": {
+			"sourceMap": false
+		}
+	}, {
+		"compilationSuccessInfo": {
+			"messages": []
+		},
+		"shouldClearConsole": false,
+		"formatters": [],
+		"transformers": []
+	}, {
+		"outputPath": "public/build",
+		"friendlyErrorsPlugin": {
+			"compilationSuccessInfo": {
+				"messages": []
+			},
+			"shouldClearConsole": false,
+			"formatters": [],
+			"transformers": []
+		}
+	}],
+	"performance": {
+		"hints": false
+	},
+	"stats": {
+		"hash": false,
+		"version": false,
+		"timings": false,
+		"assets": false,
+		"chunks": false,
+		"maxModules": 0,
+		"modules": false,
+		"reasons": false,
+		"children": false,
+		"source": false,
+		"errors": false,
+		"errorDetails": false,
+		"warnings": false,
+		"publicPath": false
+	},
+	"resolve": {
+		"extensions": [".js", ".jsx", ".vue", ".ts", ".tsx"],
+		"alias": {}
+	}
+}
