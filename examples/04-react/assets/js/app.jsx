@@ -1,6 +1,5 @@
-
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 function RenderedWith(props) {
     return <span>Rendered with {props.with}!</span>;
