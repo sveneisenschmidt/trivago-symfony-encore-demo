@@ -8,46 +8,59 @@
 
 # Installation
 
-1. Install  composer
-```console
+1. Prepare folders
+```
+mkdir app
+```
+
+2. Install  composer
+```
 docker-compose run php
 curl https://getcomposer.org/installer | php -- --filename=composer --install-dir=/bin
 ```
 
-2. Install Symfony Skeleton
+3. Install Symfony Skeleton
 ```console
 docker-compose run php
 composer create-project symfony/skeleton /data/app
 ```
 
-3. Install Symfony Flex packages
+4. Install Symfony Flex packages
 ```console
 docker-compose run php
 composer require server twig asset encore
 ```
 
-4. Copy `dist` files to root
-```console
-docker-compose run php
-cp /data/dist/* /data/app -r
-```
-
 5. Install node packages
 ```console
 docker-compose run node
+yarn add node-sass sass-loader babel-preset-es2017 react react-dom prop-types babel-preset-react
 yarn
-yarn add sass-loader babel-preset-es2017 react react-dom prop-types babel-preset-react
 ```
 
 # Usage
 
-1. Start web server
+1. Pick example
+
+| Folder | Description |
+|---|---|
+| `examples/01-basic-setup` | Default controller, assets and routes. |
+| `examples/02-es5-scss` | Basic setup plus ES5 and SCSS support via Webpack Encore. |
+
+
+2. Copy examples files to application
+```console
+docker-compose run php
+cp /data/examples/01-basic-setup/* /data/app -r
+```
+
+3. Start web server
 ```console
 docker-compose run --service-ports php
 php bin/console server:run 0.0.0.0:80
 ```
 
-2. Build assets
+4. Build assets
 ```console
 docker-compose run node
 yarn run build
